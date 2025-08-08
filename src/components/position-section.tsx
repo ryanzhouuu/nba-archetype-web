@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function PositionSection() {
@@ -7,6 +8,7 @@ export default function PositionSection() {
     summary: string;
     tags: string[];
     accent: string; // tailwind gradient classes
+    href: string;
   }> = [
     {
       code: "PG",
@@ -14,6 +16,7 @@ export default function PositionSection() {
       summary: "Ball handling, playmaking, pace control",
       tags: ["Playmaking", "PnR", "Perimeter"],
       accent: "from-blue-600 to-blue-400",
+      href: "/point-guard",
     },
     {
       code: "SG",
@@ -21,6 +24,7 @@ export default function PositionSection() {
       summary: "Perimeter scoring and off-ball movement",
       tags: ["Scoring", "Catch & Shoot", "Spacing"],
       accent: "from-red-600 to-orange-500",
+      href: "/shooting-guard",
     },
     {
       code: "SF",
@@ -28,6 +32,7 @@ export default function PositionSection() {
       summary: "Two-way versatility across the wing",
       tags: ["Slashing", "3&D", "Switchability"],
       accent: "from-indigo-600 to-purple-500",
+      href: "/small-forward",
     },
     {
       code: "PF",
@@ -35,6 +40,7 @@ export default function PositionSection() {
       summary: "Physicality, screening, stretch potential",
       tags: ["Stretch", "Roll", "Rebounding"],
       accent: "from-emerald-600 to-lime-500",
+      href: "/power-forward",
     },
     {
       code: "C",
@@ -42,6 +48,7 @@ export default function PositionSection() {
       summary: "Rim protection, finishing, interior gravity",
       tags: ["Rim Protect", "Post", "Boards"],
       accent: "from-sky-600 to-cyan-500",
+      href: "/center",
     },
   ];
 
@@ -132,7 +139,7 @@ export default function PositionSection() {
                 </div>
 
                 <div className="mt-auto pt-4">
-                  <button
+                  {/* <button
                     type="button"
                     className={`inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-3.5 py-2 text-sm font-semibold text-gray-800 transition-colors hover:border-transparent hover:text-white hover:bg-gradient-to-r ${pos.accent}`}
                   >
@@ -151,7 +158,13 @@ export default function PositionSection() {
                         d="M9 5l7 7-7 7"
                       />
                     </svg>
-                  </button>
+                  </button> */}
+                  <Link
+                    href={pos.href}
+                    className={`inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-3.5 py-2 text-sm font-semibold text-gray-800 transition-colors hover:border-transparent hover:text-white hover:bg-gradient-to-r ${pos.accent}`}
+                  >
+                    View {pos.code} clusters
+                  </Link>
                 </div>
               </div>
             </article>
