@@ -54,7 +54,7 @@ export default function SiteHeader({ currentPos }: Props) {
             : "backdrop-blur-sm bg-slate-950/85 border-b border-white/10 shadow-sm"
         }
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-16 flex items-center justify-between">
           <Link
             href="/"
             className={

@@ -47,7 +47,7 @@ export default async function PositionClusters({ pos }: Props) {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       {clusters.map(([clusterId, rows]) => {
         const avgPTS = mean(rows, "PTS");
         const avgAST = mean(rows, "AST");
@@ -66,33 +66,33 @@ export default async function PositionClusters({ pos }: Props) {
               className={`pointer-events-none absolute -inset-[1px] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-60 ${themeByPos[pos].overlay}`}
             />
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:28px_28px] opacity-20" />
-            <div className="relative p-6 flex flex-col gap-5">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="relative h-10 w-10">
+            <div className="relative p-5 sm:p-6 flex flex-col gap-4 sm:gap-5">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="relative h-8 w-8 sm:h-10 sm:w-10">
                     <div
                       className={`absolute inset-0 rounded-full ${themeByPos[pos].badge} opacity-60`}
                     />
                     <div className="absolute inset-[3px] rounded-full bg-black/40 backdrop-blur" />
-                    <div className="absolute inset-0 flex items-center justify-center text-xs font-extrabold text-white">
+                    <div className="absolute inset-0 flex items-center justify-center text-[11px] sm:text-xs font-extrabold text-white">
                       {clusterId}
                     </div>
                   </div>
-                  <div>
-                    <h2 className="text-lg font-bold text-white">
+                  <div className="min-w-0">
+                    <h2 className="text-base sm:text-lg font-bold text-white truncate">
                       Cluster {clusterId}
                     </h2>
-                    <div className="text-[11px] text-gray-300/90">
+                    <div className="text-[10px] sm:text-[11px] text-gray-300/90">
                       Per-100 poss summary
                     </div>
                   </div>
                 </div>
-                <span className="text-xs font-semibold text-gray-300 bg-white/10 border border-white/20 rounded-full px-2 py-1">
+                <span className="text-[11px] sm:text-xs font-semibold text-gray-300 bg-white/10 border border-white/20 rounded-full px-2 py-1 self-start sm:self-auto">
                   {rows.length} players
                 </span>
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <Stat label="PTS" value={avgPTS} />
                 <Stat label="AST" value={avgAST} />
                 <Stat label="TRB" value={avgTRB} />
@@ -122,23 +122,23 @@ export default async function PositionClusters({ pos }: Props) {
                       return (
                         <li
                           key={p.Player}
-                          className="flex items-center justify-between text-sm text-gray-300"
+                          className="flex items-center justify-between text-xs sm:text-sm text-gray-300"
                         >
                           <div className="min-w-0 flex-1">
                             <span className="truncate">{p.Player}</span>
                             <span className="text-gray-400 ml-2">{p.Team}</span>
                           </div>
-                          <div className="ml-3 flex items-center gap-2 text-[11px] text-gray-300/90">
-                            <span className="rounded border border-white/15 bg-white/5 px-1.5 py-0.5">
+                          <div className="ml-3 flex items-center flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-gray-300/90">
+                            <span className="inline-flex rounded border border-white/15 bg-white/5 px-1.5 py-0.5">
                               PTS {pts}
                             </span>
-                            <span className="rounded border border-white/15 bg-white/5 px-1.5 py-0.5">
+                            <span className="inline-flex rounded border border-white/15 bg-white/5 px-1.5 py-0.5">
                               AST {ast}
                             </span>
-                            <span className="rounded border border-white/15 bg-white/5 px-1.5 py-0.5">
+                            <span className="hidden sm:inline-flex rounded border border-white/15 bg-white/5 px-1.5 py-0.5">
                               TRB {trb}
                             </span>
-                            <span className="rounded border border-white/15 bg-white/5 px-1.5 py-0.5">
+                            <span className="hidden sm:inline-flex rounded border border-white/15 bg-white/5 px-1.5 py-0.5">
                               3P% {threePct}
                             </span>
                           </div>
