@@ -4,6 +4,7 @@ import {
   mean,
   type PlayerRow,
 } from "@/lib/nba-data";
+import { clusterDescriptions } from "@/lib/cluster-descriptions";
 
 type Props = { pos: PlayerRow["Pos"] };
 
@@ -101,6 +102,11 @@ export default async function PositionClusters({ pos }: Props) {
                 <Stat label="ORtg" value={avgORtg} />
                 <Stat label="DRtg" value={avgDRtg} />
               </div>
+
+              {/* Custom cluster description slot */}
+              <p className="text-xs sm:text-sm text-gray-200/90 leading-relaxed">
+                {clusterDescriptions[pos]?.[clusterId] ?? "Add analysis..."}
+              </p>
 
               <div>
                 <div className="text-sm font-semibold text-gray-200 mb-2">
