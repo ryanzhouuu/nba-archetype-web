@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import SiteHeader from "@/components/site-header";
 
 const manrope = localFont({
   src: [
@@ -56,10 +57,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${manrope.variable} antialiased`}
-      >
-        {children}
+      <body className={`${manrope.variable} antialiased p-0`}>
+        <SiteHeader />
+        <div className="pt-16">{children}</div>
       </body>
     </html>
   );
